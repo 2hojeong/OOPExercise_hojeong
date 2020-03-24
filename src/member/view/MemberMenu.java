@@ -9,9 +9,7 @@ public class MemberMenu {
 	Scanner sc = new Scanner(System.in);
 	MemberManager mm = new MemberManager();
 	
-	public MemberMenu() {
-
-	}
+	public MemberMenu() {}
 	
 	public void mainMenu() {
 		
@@ -101,9 +99,7 @@ public class MemberMenu {
 			case 2 : mm.deleteAll(); break;
 			case 9 : System.out.println("메인메뉴로 이동합니다."); return;
 			}
-			
 		}while(true);
-		
 	}
 	
 }

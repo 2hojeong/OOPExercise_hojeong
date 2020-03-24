@@ -53,6 +53,7 @@ public class MemberManager {
 		String userName = sc.next();
 		
 		for(int i = 0; i <ctn; i++) {
+			
 			if(userName.equals(marr[i].getUserName())) {
 				printOne(marr[i]); return;
 			} else {
@@ -67,6 +68,7 @@ public class MemberManager {
 		String userEmail = sc.next();
 		
 		for(int i = 0; i < ctn; i++) {
+			
 			if(userEmail.equals(marr[i].getEmail())) {
 				printOne(marr[i]); return;
 			} else {
@@ -81,6 +83,7 @@ public class MemberManager {
 		String userId = sc.next();
 		
 		for(int i = 0; i < ctn; i++) {
+			
 			if(userId.equals(marr[i].getUserId())) {
 				System.out.println("변경할 비밀번호를 입력하세요 : ");
 				String chPwd = sc.next();
@@ -98,6 +101,7 @@ public class MemberManager {
 		String userId = sc.next();
 		
 		for(int i = 0; i < ctn; i++) {
+			
 			if(userId.equals(marr[i].getUserId())) {
 				System.out.println("변경할 이름을 입력하세요 : ");
 				String chName = sc.next();
@@ -116,10 +120,12 @@ public class MemberManager {
 		
 		for(int i = 0; i < ctn; i++) {
 			if(userId.equals(marr[i].getUserId())) {
+				
 				System.out.println("변경할 이메일을 입력하세요 : ");
 				String chEmail = sc.next();
 				marr[i].setEmail(chEmail);
 				System.out.println("이메일 수정이 완료되었습니다."); return;
+				
 			} else {
 				System.out.println("수정할 회원이 존재하지 않습니다."); return;
 			}
@@ -133,11 +139,13 @@ public class MemberManager {
 		
 		for(int i = 0; i < ctn; i++) {
 			if(userId.equals(marr[i].getUserId())) {
-				for(int j = i; j < ctn; j++) {
+				
+				for(int j = 0; j < ctn; j++) {
 					Member temp = marr[j];
 					marr[j] = marr[j+1];
 					marr[j+1] = temp;
 				}
+				
 			} else {
 				System.out.println("삭제할 회원 정보가 존재하지 않습니다."); return;
 			}
@@ -148,21 +156,28 @@ public class MemberManager {
 	
 	public void deleteAll() {
 		
-		
-		
+		for(int i = 0; i < ctn; i++) {
+			marr[i].setUserName("");
+			marr[i].setUserId("");
+			marr[i].setUserPwd("");
+			marr[i].setAge(0);
+			marr[i].setGender(' ');
+			marr[i].setEmail("");
+		}
+		ctn = 0;
+		return;
 	}
 	
 	public void printAllMember() {
 		
 		for(int i = 0; i < ctn; i++) {
-			System.out.print("아이디 : " + marr[i].getUserId());
-			System.out.print("패스워드 : " + marr[i].getUserPwd());
-			System.out.print("이름 : " + marr[i].getUserName());
-			System.out.print("나이 : " + marr[i].getAge());
-			System.out.print("성별 : " + marr[i].getGender());
-			System.out.print("이메일 : " + marr[i].getEmail());
+			System.out.println("아이디 : " + marr[i].getUserId());
+			System.out.println("패스워드 : " + marr[i].getUserPwd());
+			System.out.println("이름 : " + marr[i].getUserName());
+			System.out.println("나이 : " + marr[i].getAge());
+			System.out.println("성별 : " + marr[i].getGender());
+			System.out.println("이메일 : " + marr[i].getEmail());
 		}
-		
 	}
 	
 	public void printOne(Member m) {
@@ -175,5 +190,4 @@ public class MemberManager {
 		m.getEmail();
 		
 	}
-	
 }
