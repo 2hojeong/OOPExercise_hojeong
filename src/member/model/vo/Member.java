@@ -13,7 +13,8 @@ public class Member {
 		
 	}
 
-	public Member(String userId, String userPwd, String userName, int age, char gender, String email) { //왜자꾸 에러?
+	public Member(String userId, String userPwd, String userName, 
+				  int age, char gender, String email) {
 		this.userId = userId;
 		this.userPwd = userPwd;
 		this.userName = userName;

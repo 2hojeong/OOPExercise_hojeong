@@ -2,6 +2,7 @@ package member.controller;
 
 import member.model.vo.*;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MemberManager {
 
@@ -10,6 +11,7 @@ public class MemberManager {
 	Scanner sc = new Scanner(System.in);
 	
 	public void insertMember() {
+		
 		System.out.println("아이디 입력 : ");
 		String userId = sc.next();
 		System.out.println("패스워드 입력 : ");
@@ -28,13 +30,14 @@ public class MemberManager {
 	}
 	
 	public void searchId() {
+		
 		System.out.println("검색할 아이디를 입력하세요 : ");
 		String userId = sc.next();
 		
 		for(int i = 0; i < ctn; i++) {
 			
 			if (userId.equals(marr[i].getUserId())) {
-				printOne(marr[i]);
+				printOne(marr[i]); return;
 			} else {
 				System.out.println("검색한 회원 정보가 존재하지 않습니다."); return;
 			}
@@ -44,47 +47,68 @@ public class MemberManager {
 	}
 	
 	public void searchName() {
+		
 		System.out.println("검색할 이름을 입력하세요 : ");
 		String userName = sc.next();
 		
 		for(int i = 0; i <ctn; i++) {
 			if(userName.equals(marr[i].getUserName())) {
-				printOne(marr[i]);
+				printOne(marr[i]); return;
 			} else {
-				System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+				System.out.println("검색한 회원 정보가 존재하지 않습니다."); return;
 			}
 		}
 	}
 	
 	public void searchEmail() {
+		
 		System.out.println("검색할 이메일을 입력하세요 : ");
 		String userEmail = sc.next();
 		
 		for(int i = 0; i < ctn; i++) {
 			if(userEmail.equals(marr[i].getEmail())) {
-				printOne(marr[i]);
+				printOne(marr[i]); return;
 			} else {
-				System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+				System.out.println("검색한 회원 정보가 존재하지 않습니다."); return;
 			}
 		}
 	}
 	
 	public void updatePwd() {
+		
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
+		
+		for(int i = 0; i < ctn; i++) {
+			if(userId.equals(marr[i].getUserId())) {
+				System.out.println("변경할 비밀번호를 입력하세요 : ");
+				String chPwd = sc.next();
+				marr[i].setUserPwd(chPwd);
+				System.out.println("패스워드 수정이 완료되었습니다."); return;
+			} else {
+				System.out.println("수정할 회원이 존재하지 않습니다."); return;
+			}
+		}
 	}
 	
 	public void updateName() {
-		System.out.println("수정할 회원의 비밀번호를 입력하세요 : ");
+		
+		System.out.println("수정할 회원의 이름을 입력하세요 : ");
 		String userPwd = sc.next();
+		
+		
 	}
 	
 	public void updateEmail() {
+		
 		System.out.println("수정할 회원의 이메일을 입력하세요 : ");
 		String userEmail = sc.next();
+		
+		
 	}
 	
 	public void deleteOne() {
+		
 		System.out.println("탈퇴할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
 	}
