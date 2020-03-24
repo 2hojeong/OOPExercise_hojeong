@@ -25,7 +25,8 @@ public class MemberManager {
 		System.out.println("이메일 입력 : ");
 		String email = sc.next();
 		
-		marr[ctn] = new Member(userId, userPwd, userName, age, gender, email);
+		marr[ctn] = new Member(userId, userPwd, userName, 
+								age, gender, email);
 		ctn++;
 	}
 	
@@ -129,6 +130,20 @@ public class MemberManager {
 		
 		System.out.println("탈퇴할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
+		
+		for(int i = 0; i < ctn; i++) {
+			if(userId.equals(marr[i].getUserId())) {
+				for(int j = i; j < ctn; j++) {
+					Member temp = marr[j];
+					marr[j] = marr[j+1];
+					marr[j+1] = temp;
+				}
+			} else {
+				System.out.println("삭제할 회원 정보가 존재하지 않습니다."); return;
+			}
+		}
+		ctn--;
+		return;
 	}
 	
 	public void deleteAll() {
