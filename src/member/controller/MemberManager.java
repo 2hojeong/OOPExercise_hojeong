@@ -148,9 +148,20 @@ public class MemberManager {
 	
 	public void deleteAll() {
 		
+		
+		
 	}
 	
 	public void printAllMember() {
+		
+		for(int i = 0; i < ctn; i++) {
+			System.out.print("아이디 : " + marr[i].getUserId());
+			System.out.print("패스워드 : " + marr[i].getUserPwd());
+			System.out.print("이름 : " + marr[i].getUserName());
+			System.out.print("나이 : " + marr[i].getAge());
+			System.out.print("성별 : " + marr[i].getGender());
+			System.out.print("이메일 : " + marr[i].getEmail());
+		}
 		
 	}
 	
