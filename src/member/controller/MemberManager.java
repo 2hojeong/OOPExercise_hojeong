@@ -32,8 +32,6 @@ public class MemberManager {
 		String userId = sc.next();
 		
 		for(int i = 0; i < ctn; i++) {
-//			marr[i].getUserId();
-//			userId.equals(marr[i].getUserId());
 			
 			if (userId.equals(marr[i].getUserId())) {
 				printOne(marr[i]);
