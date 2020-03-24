@@ -93,18 +93,36 @@ public class MemberManager {
 	
 	public void updateName() {
 		
-		System.out.println("수정할 회원의 이름을 입력하세요 : ");
-		String userPwd = sc.next();
+		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
+		String userId = sc.next();
 		
-		
+		for(int i = 0; i < ctn; i++) {
+			if(userId.equals(marr[i].getUserId())) {
+				System.out.println("변경할 이름을 입력하세요 : ");
+				String chName = sc.next();
+				marr[i].setUserName(chName);
+				System.out.println("이름 수정이 완료되었습니다."); return;
+			} else {
+				System.out.println("수정할 회원이 존재하지 않습니다."); return;
+			}
+		}
 	}
 	
 	public void updateEmail() {
 		
-		System.out.println("수정할 회원의 이메일을 입력하세요 : ");
-		String userEmail = sc.next();
+		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
+		String userId = sc.next();
 		
-		
+		for(int i = 0; i < ctn; i++) {
+			if(userId.equals(marr[i].getUserId())) {
+				System.out.println("변경할 이메일을 입력하세요 : ");
+				String chEmail = sc.next();
+				marr[i].setEmail(chEmail);
+				System.out.println("이메일 수정이 완료되었습니다."); return;
+			} else {
+				System.out.println("수정할 회원이 존재하지 않습니다."); return;
+			}
+		}
 	}
 	
 	public void deleteOne() {
@@ -122,12 +140,14 @@ public class MemberManager {
 	}
 	
 	public void printOne(Member m) {
+		
 		m.getUserId();
 		m.getUserPwd();
 		m.getUserName();
 		m.getAge();
 		m.getGender();
 		m.getEmail();
+		
 	}
 	
 }
