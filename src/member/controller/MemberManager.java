@@ -35,7 +35,7 @@ public class MemberManager {
 //			marr[i].getUserId();
 //			userId.equals(marr[i].getUserId());
 			
-			if (userId.contentEquals(marr[i].getUserId())) {
+			if (userId.equals(marr[i].getUserId())) {
 				printOne(marr[i]);
 			} else {
 				System.out.println("검색한 회원 정보가 존재하지 않습니다."); return;
@@ -50,7 +50,7 @@ public class MemberManager {
 		String userName = sc.next();
 		
 		for(int i = 0; i <ctn; i++) {
-			if(userName.contentEquals(marr[i].getUserName())) {
+			if(userName.equals(marr[i].getUserName())) {
 				printOne(marr[i]);
 			} else {
 				System.out.println("검색한 회원 정보가 존재하지 않습니다.");
@@ -62,7 +62,13 @@ public class MemberManager {
 		System.out.println("검색할 이메일을 입력하세요 : ");
 		String userEmail = sc.next();
 		
-	
+		for(int i = 0; i < ctn; i++) {
+			if(userEmail.equals(marr[i].getEmail())) {
+				printOne(marr[i]);
+			} else {
+				System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+			}
+		}
 	}
 	
 	public void updatePwd() {
